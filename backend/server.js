@@ -3,6 +3,16 @@ import data from './data';
 
 const app = express();
 
+app.get("/api/products/:id", (req, res)=>{
+    const productId = req.params.id;
+    res.send(data.products.find(x=>x._id === productId));
+    if(product)
+        res.send(product);
+        else
+        res.status(404).send({ msg:"Product not Found."})
+
+});
+
 app.get("/api/products", (req, res)=>{
     res.send(data.products);
 });

@@ -1,5 +1,6 @@
-import React ,{ useEffect }from 'react'
-import { addToCart, CART_ADD_ITEM } from '../actions/cartActions';
+import React ,{ useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { addToCart,removeFromCart} from '../actions/cartActions';
 import { useDispatch, useSelector } from 'react-redux';
 
 function CartScreen(props) {
@@ -10,6 +11,10 @@ function CartScreen(props) {
     const productId = props.match.params.id;
     const qty = props.location.search? Number(props.location.search.split("=")[1]):1;
     const dispatch = useDispatch();
+
+    const removeFromCartHandler=(productId) =>{
+        dispatch(removeFromCart(productId));
+    }
     useEffect(()=>{
         if(productId){
             dispatch(addToCart(productId,qty))
@@ -40,9 +45,10 @@ function CartScreen(props) {
                             </div>
                             <div className="cart-name">
                                 <div>
+                                    <Link to ={"/product/" + item.price }>
                                     {item.name}
+                                    </Link>
                                 </div>
-                            </div>
                             <div>
                                 Qty:
                                 <select>
@@ -51,11 +57,15 @@ function CartScreen(props) {
                                         <option value="3">3</option>
                                         <option value="4">4</option>
                                 </select>
+                                <button type="button" className ="button" onClick={() => removeFromCartHandler(item.product)}>
+                                    Delete
+                                </button>
                             </div>
-                            
+                            </div>
                             <div className="cart-price">
                                 {item.price}
                             </div>
+                            
                             
                             </li>
                             )
@@ -63,6 +73,7 @@ function CartScreen(props) {
                     }
                 </ul>
             </div>
+            
 
            <div className="cart-action">
                <h3>

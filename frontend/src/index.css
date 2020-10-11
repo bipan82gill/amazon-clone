@@ -210,6 +210,7 @@ list-style-type: none;
 .cart-action{
   flex: 1 1 20rem;
   background-color:#f8f8f8;
+  border:.1rem #808080 solid;
   border-radius: .5rem;
   padding: 1rem;
 
@@ -217,6 +218,7 @@ list-style-type: none;
 .cart-list-container{
   padding: 0;
   list-style-type: none;
+  padding: 1rem;
 
 }
 .cart-list-container li{
@@ -234,9 +236,8 @@ list-style-type: none;
 .cart-list-container li img{
   max-height: 10rem;
   max-width: 10rem;
-  /* margin-bottom: 1rem;
-  border: .1rem #808080 solid; */
-
+  margin-bottom: 1rem;
+  border: .1rem #808080 solid;
 }
 .cart-image{
   flex: 1 1;

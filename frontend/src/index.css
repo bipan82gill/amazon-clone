@@ -206,7 +206,10 @@ list-style-type: none;
   background-color:#d4c259 ;
 }
 .button.secondary{
-  background-color:#808080;
+  background-color:#f0f0f0;
+}
+.text-center{
+  text-align: center;
 }
 .cart{
   display: flex;
